@@ -14,6 +14,7 @@ Library           RPA.Dialogs
 Library           RPA.Robocloud.Secrets
 
 *** Variables ***
+${link}        https://robotsparebinindustries.com/#/robot-order
 ${csv}         https://robotsparebinindustries.com/orders.csv
 ${leg}         xpath://Input[@placeholder="Enter the part number for the legs"]
 ${button}      xpath://Button[@id="order-another"]
@@ -24,7 +25,7 @@ Order robots from RobotSpareBin Industries Inc
         ${result}=     Get Secret       test
         Open the intranet website    ${result}[URL]
     EXCEPT    
-        Open the intranet website    https://robotsparebinindustries.com/#/robot-order
+        Open the intranet website    ${link}
     END
     Download the Excel file
     Fill the form using the data from the Excel file
